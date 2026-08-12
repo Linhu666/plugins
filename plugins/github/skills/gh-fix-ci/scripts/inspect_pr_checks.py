@@ -61,6 +61,8 @@ def run_gh_command(args: Sequence[str], cwd: Path) -> GhResult:
         cwd=cwd,
         text=True,
         capture_output=True,
+        encoding="utf-8",
+        errors="replace",
     )
     return GhResult(process.returncode, process.stdout, process.stderr)
 
@@ -71,7 +73,7 @@ def run_gh_command_raw(args: Sequence[str], cwd: Path) -> tuple[int, bytes, str]
         cwd=cwd,
         capture_output=True,
     )
-    stderr = process.stderr.decode(errors="replace")
+    stderr = process.stderr.decode("utf-8", errors="replace")
     return process.returncode, process.stdout, stderr
 
 
@@ -141,6 +143,8 @@ def find_git_root(start: Path) -> Path | None:
         cwd=start,
         text=True,
         capture_output=True,
+        encoding="utf-8",
+        errors="replace",
     )
     if result.returncode != 0:
         return None
@@ -370,11 +374,11 @@ def fetch_job_log(job_id: str, repo_root: Path) -> tuple[str, str]:
     endpoint = f"/repos/{repo_slug}/actions/jobs/{job_id}/logs"
     returncode, stdout_bytes, stderr = run_gh_command_raw(["api", endpoint], cwd=repo_root)
     if returncode != 0:
-        message = (stderr or stdout_bytes.decode(errors="replace")).strip()
+        message = (stderr or stdout_bytes.decode("utf-8", errors="replace")).strip()
         return "", message or "gh api job logs failed"
     if is_zip_payload(stdout_bytes):
         return "", "Job logs returned a zip archive; unable to parse."
-    return stdout_bytes.decode(errors="replace"), ""
+    return stdout_bytes.decode("utf-8", errors="replace"), ""
 
 
 def fetch_repo_slug(repo_root: Path) -> str | None:
