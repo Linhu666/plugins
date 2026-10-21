@@ -1,0 +1,9 @@
+[project]
+name = "codex-offline-voice"
+version = "0.1.0"
+description = "Long-press Codex composer offline dictation"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

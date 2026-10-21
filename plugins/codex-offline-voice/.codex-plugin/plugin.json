@@ -1,0 +1,27 @@
+{
+  "name": "codex-offline-voice",
+  "version": "0.1.0",
+  "description": "Long-press the Codex composer to dictate with a completely local speech model.",
+  "author": {
+    "name": "Local Codex User"
+  },
+  "license": "MIT",
+  "keywords": ["codex", "voice", "dictation", "offline", "speech-to-text"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Offline Voice",
+    "shortDescription": "长按输入框，本地离线听写",
+    "longDescription": "在 Codex 输入框中按住鼠标即可录音，松开后使用本机模型转写并粘贴到光标位置。音频不离开电脑，不调用云端识别接口。",
+    "developerName": "Local Codex User",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Local"],
+    "defaultPrompt": [
+      "安装 Codex 离线语音助手",
+      "检查离线语音助手状态",
+      "诊断 Codex 输入框长按识别"
+    ],
+    "brandColor": "#2F80ED",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

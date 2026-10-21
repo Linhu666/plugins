@@ -1,0 +1,27 @@
+Codex 离线语音输入 - 安装说明
+
+1. 将整个 codex-offline-voice 文件夹复制到：
+   C:\Users\<你的用户名>\plugins\codex-offline-voice
+
+2. 在 PowerShell 中运行：
+   powershell -ExecutionPolicy Bypass -File "$HOME\plugins\codex-offline-voice\scripts\install.ps1"
+
+3. 安装脚本会：
+   - 把程序复制到 %LOCALAPPDATA%\CodexOfflineVoice\App
+   - 创建开机启动快捷方式
+   - 启动轻量后台监护器
+   - Codex 打开时自动启动托盘助手，Codex 关闭后自动停止
+
+4. 使用方法：
+   - 在 Codex 输入框内按住鼠标左键约 200 毫秒
+   - 听到上升双音，并在屏幕底部看到“正在听写”后开始说话
+   - 松开鼠标，听到下降双音，悬浮窗会显示“正在本地转写”
+   - 等待本地转写完成，文字会自动粘贴到当前光标位置
+
+5. 程序会过滤低音量片段和环境噪声，不会自动发送消息，也不会把音频上传到网络。
+
+6. 如需卸载：
+   powershell -ExecutionPolicy Bypass -File "$HOME\plugins\codex-offline-voice\scripts\uninstall.ps1"
+
+7. 如需保留配置卸载：
+   powershell -ExecutionPolicy Bypass -File "$HOME\plugins\codex-offline-voice\scripts\uninstall.ps1" -KeepData

@@ -20,3 +20,5 @@ Highlighted richer examples in this repo include:
 - `plugins/build-web-apps` for deployment, UI, payments, and database workflows
 - `plugins/expo` for Expo and React Native apps, SDK upgrades, EAS workflows, and Codex Run actions
 - `plugins/netlify`, `plugins/remotion`, and `plugins/google-slides` for additional public skill- and MCP-backed plugin bundles
+
+- `plugins/codex-offline-voice` for completely offline Windows dictation with long-press input, VAD noise filtering, and a non-activating overlay.
